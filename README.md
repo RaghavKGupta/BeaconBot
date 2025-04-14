@@ -11,7 +11,9 @@
 **Team Members:**  
 - Raghav Gupta  
 - Nigam Wadhwa  
-- Ruhma Mehak Khan  
+- Ruhma Mehak Khan
+
+** Live Site:** https://beacon-bot-opal.vercel.app/ 
 
 ---
 
