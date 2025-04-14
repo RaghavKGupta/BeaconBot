@@ -198,8 +198,8 @@ body {
 }
 
 .prompt-button {
-  background-color: var(--background-soft);
-  color: var(--text-primary-main);
+  background-color: var(--background-bubble-primary);
+  color: var(--background-bubble-secondary);
 }
 
 /* Toggle Styles */
@@ -209,14 +209,4 @@ body {
 
 .toggle-boarder {
   border: 1px solid var(--background-bubble-primary);
-}
-
-.vercel-link {
-  color: var(--text-primary-inverse);
-  background-color: var(--text-primary);
-  border-color: var(--border-primary);
-}
-
-.vercel-link hr {
-  border-color: var(--border-primary);
 }
