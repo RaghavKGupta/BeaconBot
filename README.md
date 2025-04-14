@@ -23,8 +23,8 @@
 - **🧠 OpenAI Language Generation:** Answers user questions with contextual awareness.
 - **⚙️ Seamless Deployment:** Launch on Vercel in minutes.
 - **🛠 Customizable Frontend:** Tailor UI to match ##### styling standards.
-- **📦 Built-In Seeding:** Quickly populate the vector store with curated CMS content.
-
+- **📦 Built-In Seeding:** Quickly populate the vector store with curated CMS content in JSON.
+- **📦 Read PDFs from S3:** Directly read PDF files from an S3 bucket 
 ---
 
 ## ⚙️ Architecture Diagram
