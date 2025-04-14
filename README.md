@@ -77,19 +77,19 @@
    ```
 4. ## 📄 Ingesting PDFs from S3
 
-BeaconBot includes tooling to extract PDF content from AWS S3 and convert it into structured JSON format used for training, search, or vectorization.
-
-### 📥 How it Works
-
-Run the following script to:
-- Connect to your AWS S3 bucket
-- Parse PDFs into text
-- Generate structured JSON with `url`, `title`, `content`
-- Append new entries (avoiding duplicates) to `scripts/sample_data.json`
-
-```bash
-npm run ingest:pdfs
-```
+   BeaconBot includes tooling to extract PDF content from AWS S3 and convert it into structured JSON format used for training, search, or vectorization.
+   
+   ### 📥 How it Works
+   
+   Run the following script to:
+   - Connect to your AWS S3 bucket
+   - Parse PDFs into text
+   - Generate structured JSON with `url`, `title`, `content`
+   - Append new entries (avoiding duplicates) to `scripts/sample_data.json`
+   
+   ```bash
+   npm run ingest:pdfs
+   ```
 
 
 5. **Seed the database (development only):**
