@@ -1,6 +1,7 @@
 {
-  "name": "ragbot-starter",
+  "name": "BeaconBot",
   "version": "0.1.0",
+  "author": "Raghav Gupta",
   "private": true,
   "scripts": {
     "dev": "next dev",
