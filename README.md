@@ -1,4 +1,4 @@
-# 🧠 BeaconBot – #### AI Chatbot  
+# BeaconBot – #### AI Chatbot  
 **Georgia Tech | MGT 8803 – AI in Business**
 
 **BeaconBot** is an AI-powered Retrieval-Augmented Generation (RAG) chatbot built to assist users of [#####] in finding accurate, timely, and relevant information about child welfare topics. It leverages **Astra DB** for vector search and **OpenAI** for natural language generation. Designed for high usability and accessibility, the bot can be deployed easily on **Vercel** and CAN be integrated with government UI standards like USWDS.
@@ -23,7 +23,12 @@
 - **🧠 OpenAI Language Generation:** Answers user questions with contextual awareness.
 - **⚙️ Seamless Deployment:** Launch on Vercel in minutes.
 - **🛠 Customizable Frontend:** Tailor UI to match ##### styling standards.
-- **📦 Built-In Seeding:** Quickly populate the vector store with curated government content.
+- **📦 Built-In Seeding:** Quickly populate the vector store with curated CMS content.
+
+---
+
+## ⚙️ Architecture Diagram
+<img width="600" alt="arch diag" src="https://github.com/RaghavKGupta/BeaconBot/blob/main/BBArch.png">
 
 ---
 
