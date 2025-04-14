@@ -69,15 +69,36 @@
    ASTRA_DB_API_ENDPOINT=https://your-astra-endpoint
    ASTRA_DB_APPLICATION_TOKEN=AstraCS:your_token_here
    ASTRA_DB_NAMESPACE=your_keyspace (optional)
+   AWS_ACCESS_KEY_ID=your_aws_access_key_id
+   AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
+   AWS_REGION=us-east-1
+   S3_BUCKET_NAME=your-s3-bucket
+   S3_PREFIX=pdfs/
    ```
+4. ## 📄 Ingesting PDFs from S3
 
-4. **Seed the database (development only):**
+BeaconBot includes tooling to extract PDF content from AWS S3 and convert it into structured JSON format used for training, search, or vectorization.
+
+### 📥 How it Works
+
+Run the following script to:
+- Connect to your AWS S3 bucket
+- Parse PDFs into text
+- Generate structured JSON with `url`, `title`, `content`
+- Append new entries (avoiding duplicates) to `scripts/sample_data.json`
+
+```bash
+npm run ingest:pdfs
+```
+
+
+5. **Seed the database (development only):**
 
    ```bash
    npm run seed
    ```
 
-5. **Start the dev server:**
+6. **Start the dev server:**
 
    ```bash
    npm run dev
