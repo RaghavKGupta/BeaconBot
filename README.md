@@ -13,7 +13,7 @@
 - Nigam Wadhwa  
 - Ruhma Mehak Khan
 
-** Live Site:** https://beacon-bot-opal.vercel.app/ 
+**Live Site:** https://beacon-bot-opal.vercel.app/ 
 
 ---
 
