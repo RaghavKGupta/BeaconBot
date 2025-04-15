@@ -32,6 +32,25 @@ export default function Home() {
     append(msg, { options: { body: { useRag, llm, similarityMetric}}});
   };
 
+  // create a function to listen to audio and then transcribe into ttext, save as handlesend param for submit with similiratymetric, llm and useRag
+  // const handleAudio = () => {
+  //   navigator.mediaDevices.getUserMedia({ audio: true })
+  //     .then(stream => {
+  //       const mediaRecorder = new MediaRecorder(stream);
+  //       mediaRecorder.start();
+  //       mediaRecorder.ondataavailable = (event) => {
+  //         const audioBlob = event.data;
+  //         const reader = new FileReader();
+  //         reader.onloadend = () => {
+  //           const audioData = reader.result;
+  //           const msg: Message = { id: crypto.randomUUID(), content: audioData, role: 'user' };
+  //           append(msg, { options: { body: { useRag, llm, similarityMetric}}});
+  //         };
+  //         reader.readAsDataURL(audioBlob);
+  //       };
+  
+
+
   return (
     <>
     <main className="flex h-screen flex-col items-center justify-center">
@@ -50,7 +69,7 @@ export default function Home() {
             </div>
             <div className='flex gap-1'>
               <ThemeButton />
-              
+             
               <button 
                 onClick={() => window.location.reload()} 
                 className="chatbot-refresh-button flex rounded-md items-center justify-center px-2.5 origin:px-3"
