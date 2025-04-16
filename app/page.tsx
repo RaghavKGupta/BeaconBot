@@ -45,8 +45,8 @@ export default function Home() {
   useEffect(() => {
     speakEnabledRef.current = speakEnabled;
   }, [speakEnabled]);
-  
-  
+
+
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -55,10 +55,10 @@ export default function Home() {
   useEffect(() => {
     if (!speakEnabled) {
       speechSynthesis.cancel();
-      setIsSpeaking(false); 
+      setIsSpeaking(false);
     }
   }, [speakEnabled]);
-  
+
 
 
   const lastSpokenMessageId = useRef<string | null>(null);
@@ -67,15 +67,15 @@ export default function Home() {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'en-US';
     utterance.rate = 1;
-  
+
     utterance.onstart = () => setIsSpeaking(true);
     utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => setIsSpeaking(false); 
-  
+    utterance.onerror = () => setIsSpeaking(false);
+
     speechSynthesis.cancel();
     speechSynthesis.speak(utterance);
   };
-  
+
 
 
 
@@ -127,7 +127,7 @@ export default function Home() {
     recognition.maxAlternatives = 1;
 
     recognition.start();
-    setIsListening(true); 
+    setIsListening(true);
 
     recognition.onresult = (event: any) => {
       const transcript = event.results[0][0].transcript;
@@ -137,7 +137,7 @@ export default function Home() {
         role: 'user',
       };
       append(msg, { options: { body: { useRag, llm, similarityMetric } } });
-      setIsListening(false); 
+      setIsListening(false);
     };
 
     recognition.onerror = (event: any) => {
@@ -265,10 +265,11 @@ export default function Home() {
 
         <button
           onClick={() => handlePrompt("I need help urgently")}
-          className="fixed bottom-4 right-4 z-50 bg-red-600 text-white px-4 py-2 rounded-md shadow-lg hover:bg-red-700"
+          className="fixed bottom-4 right-4 z-50 bg-blue-600 text-white px-4 py-2 rounded-md shadow-lg hover:bg-blue-700"
         >
-          🚨 Get Help
+          Get Help
         </button>
+
 
       </main>
     </>
