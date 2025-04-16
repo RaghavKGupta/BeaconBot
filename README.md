@@ -11,7 +11,7 @@
 **Team Members:**  
 - Raghav Gupta  
 - Nigam Wadhwa  
-- Ruhma Mehak Khan
+- Ruhma Mehek Khan
 
 **Live Site:** https://beacon-bot-opal.vercel.app/ 
 
@@ -19,12 +19,19 @@
 
 ## 🚀 Features
 
-- **🔍 Astra DB Vector Search:** Retrieves relevant documents with semantic matching.
-- **🧠 OpenAI Language Generation:** Answers user questions with contextual awareness.
-- **⚙️ Seamless Deployment:** Launch on Vercel in minutes.
-- **🛠 Customizable Frontend:** Tailor UI to match USWDS styling standards.
-- **📦 Built-In Seeding:** Quickly populate the vector store with curated CMS content or User content in JSON.
-- **📦 Read PDFs from S3:** Directly read PDF files from an S3 bucket 
+- **🚀 Fast Performance:** Ensures rapid interactions and quick response times.
+- **🛡 Robust Abuse Handling:** Manages and diffuses verbal abuse effectively.
+- **📑 PDF Content Extraction:** Provides content directly from PDFs.
+- **📦 AWS S3 Integration:** Reads PDFs seamlessly from an S3 bucket.
+- **♿ 508 Accessibility Compliance:** Fully accessible interface that meets 508 standards.
+- **🌗 Dark & Light Mode:** Offers users the flexibility of dark and light themes.
+- **🌐 Multi-Language Support (Spanish):** Engages with users in Spanish and more.
+- **🎤 Audio-to-Text Input:** Converts spoken prompts into text effortlessly.
+- **📋 Copyable Response Text:** Allows easy copying of text from responses.
+- **🗣 Listen to Responses:** Provides audio playback of responses for auditory accessibility.
+- **⏱ Timestamps:** Displays time stamps to keep track of chat interactions.
+- **📝 Chat History Summaries:** Summarizes previous chat sessions for quick overviews.
+- **🔗 Website Links:** Provides direct links for users to access more detailed information.
 ---
 
 ## ⚙️ Architecture Diagram
@@ -88,7 +95,7 @@
    - Append new entries (avoiding duplicates) to `scripts/data.json`
    
    ```bash
-   npm run ingest:pdfs
+   npm run getPdfsFromS3
    ```
 
 

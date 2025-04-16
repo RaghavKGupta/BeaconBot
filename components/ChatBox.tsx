@@ -32,10 +32,10 @@ const ChatBox: JSXElementConstructor<any> = forwardRef(function ChatBox({ conten
 
               <div className="flex justify-end items-center gap-2 mt-2 relative">
                 <button
-                  className="text-xs text-blue-600 hover:underline relative"
+                  className="text-xs text-blue-600 relative hover:bg-gray-300 rounded-full p-2"
                   onClick={handleCopy}
                 >
-                  📋 Copy
+                  Copy
                 </button>
 
                 {copied && (

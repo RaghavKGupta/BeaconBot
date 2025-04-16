@@ -113,9 +113,6 @@ export default function Home() {
   };
 
 
-
-
-  // create a function to listen to audio and then transcribe into ttext, save as handlesend param for submit with similiratymetric, llm and useRag
   const handleAudio = () => {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
@@ -130,7 +127,7 @@ export default function Home() {
     recognition.maxAlternatives = 1;
 
     recognition.start();
-    setIsListening(true); // 👈 Start listening
+    setIsListening(true); 
 
     recognition.onresult = (event: any) => {
       const transcript = event.results[0][0].transcript;
@@ -140,16 +137,16 @@ export default function Home() {
         role: 'user',
       };
       append(msg, { options: { body: { useRag, llm, similarityMetric } } });
-      setIsListening(false); // 👈 Stop when done
+      setIsListening(false); 
     };
 
     recognition.onerror = (event: any) => {
       console.error("Speech recognition error:", event.error);
-      setIsListening(false); // 👈 Stop on error
+      setIsListening(false);
     };
 
     recognition.onend = () => {
-      setIsListening(false); // 👈 Stop on manual end
+      setIsListening(false);
     };
   };
 
@@ -186,8 +183,7 @@ export default function Home() {
 
                 <button
                   onClick={() => setSpeakEnabled(prev => !prev)}
-                  className={`chatbot-send-button flex items-center justify-center px-2.5 origin:px-3 ${speakEnabled ? 'text-blue-600' : 'text-gray-400'
-                    }`}
+                  className={`chatbot-audio-button flex items-center justify-center px-3.5 origin:px-3 ${speakEnabled ? 'text-blue-600' : 'text-gray-400'}`}
                   title="Toggle voice"
                 >
                   {speakEnabled ? '🔊' : '🔇'}
