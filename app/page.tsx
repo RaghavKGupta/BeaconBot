@@ -265,10 +265,12 @@ export default function Home() {
 
         <button
           onClick={() => handlePrompt("I need help urgently")}
-          className="fixed bottom-4 right-4 z-50 bg-blue-600 text-white px-4 py-2 rounded-md shadow-lg hover:bg-blue-700"
+          style={{ backgroundColor: "var(--background-bubble-primary)" }}
+          className="fixed bottom-4 right-4 z-50 text-white px-4 py-2 rounded-md shadow-lg hover:opacity-90"
         >
-          Get Help
+          🚨 Get Help
         </button>
+
 
 
       </main>
