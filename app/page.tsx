@@ -35,13 +35,73 @@ export default function Home() {
   const messagesEndRef = useRef(null);
   const [configureOpen, setConfigureOpen] = useState(false);
 
+
+  const [isListening, setIsListening] = useState(false);
+  const [speakEnabled, setSpeakEnabled] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const speakTimeout = useRef<NodeJS.Timeout | null>(null);
+  const speakEnabledRef = useRef(speakEnabled);
+
+  useEffect(() => {
+    speakEnabledRef.current = speakEnabled;
+  }, [speakEnabled]);
+  
+  
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
+    if (!speakEnabled) {
+      speechSynthesis.cancel();
+      setIsSpeaking(false); 
+    }
+  }, [speakEnabled]);
+  
+
+
+  const lastSpokenMessageId = useRef<string | null>(null);
+
+  const speak = (text: string) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = 1;
+  
+    utterance.onstart = () => setIsSpeaking(true);
+    utterance.onend = () => setIsSpeaking(false);
+    utterance.onerror = () => setIsSpeaking(false); 
+  
+    speechSynthesis.cancel();
+    speechSynthesis.speak(utterance);
+  };
+  
+
+
+
+  useEffect(() => {
     scrollToBottom();
+
+    if (speakEnabledRef.current && messages.length > 0) {
+      const lastMsg = messages[messages.length - 1];
+
+      if (
+        lastMsg.role === 'assistant' &&
+        lastMsg.id !== lastSpokenMessageId.current
+      ) {
+        // Debounce speak until assistant message is stable
+        if (speakTimeout.current) clearTimeout(speakTimeout.current);
+
+        speakTimeout.current = setTimeout(() => {
+          speak(lastMsg.content);
+          lastSpokenMessageId.current = lastMsg.id;
+        }, 500); // wait 500ms after last change before speaking
+      }
+    }
   }, [messages]);
+
+
+
 
   const handleSend = (e) => {
     handleSubmit(e, { options: { body: { useRag, llm, similarityMetric } } });
@@ -52,7 +112,7 @@ export default function Home() {
     append(msg, { options: { body: { useRag, llm, similarityMetric } } });
   };
 
-  const [isListening, setIsListening] = useState(false);
+
 
 
   // create a function to listen to audio and then transcribe into ttext, save as handlesend param for submit with similiratymetric, llm and useRag
@@ -124,6 +184,16 @@ export default function Home() {
                   </svg>
                 </button>
 
+                <button
+                  onClick={() => setSpeakEnabled(prev => !prev)}
+                  className={`chatbot-send-button flex items-center justify-center px-2.5 origin:px-3 ${speakEnabled ? 'text-blue-600' : 'text-gray-400'
+                    }`}
+                  title="Toggle voice"
+                >
+                  {speakEnabled ? '🔊' : '🔇'}
+                </button>
+
+
               </div>
             </div>
             <p className="chatbot-text-secondary-inverse text-sm md:text-base mt-2 md:mt-4">This chatbot is designed to provide users with quick and reliable information from the official childwelfare.gov website. By leveraging Retrieval-Augmented Generation (RAG), it can understand your questions related to child welfare topics – such as child abuse and neglect, foster care, adoption, family support, and relevant laws and policies. The chatbot searches the extensive content of childwelfare.gov and generates answers based on the most relevant information found, providing you with direct and trustworthy responses. This aims to streamline access to crucial child welfare resources and support understanding of complex issues</p>
@@ -145,6 +215,23 @@ export default function Home() {
               Listening...
             </div>
           )}
+
+          {isSpeaking && (
+            <div className="text-sm text-green-600 mb-1 animate-pulse">
+              🗣 Speaking...
+            </div>
+          )}
+
+
+
+
+          <button
+            onClick={() => handlePrompt("Can you summarize the conversation so far?")}
+            className="chatbot-summary-button mt-2 text-sm text-blue-600 hover:underline"
+          >
+            📋 Summarize Chat
+          </button>
+
 
           <form className='flex h-[40px] gap-2' onSubmit={handleSend}>
             <input
@@ -175,8 +262,18 @@ export default function Home() {
             </button>
           </form>
 
+
+
           <Footer />
         </section>
+
+        <button
+          onClick={() => handlePrompt("I need help urgently")}
+          className="fixed bottom-4 right-4 z-50 bg-red-600 text-white px-4 py-2 rounded-md shadow-lg hover:bg-red-700"
+        >
+          🚨 Get Help
+        </button>
+
       </main>
     </>
   )
