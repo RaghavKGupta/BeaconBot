@@ -23,7 +23,7 @@
 - **🧠 OpenAI Language Generation:** Answers user questions with contextual awareness.
 - **⚙️ Seamless Deployment:** Launch on Vercel in minutes.
 - **🛠 Customizable Frontend:** Tailor UI to match ##### styling standards.
-- **📦 Built-In Seeding:** Quickly populate the vector store with curated CMS content in JSON.
+- **📦 Built-In Seeding:** Quickly populate the vector store with curated CMS content or User content in JSON.
 - **📦 Read PDFs from S3:** Directly read PDF files from an S3 bucket 
 ---
 
@@ -83,9 +83,9 @@
    
    Run the following script to:
    - Connect to your AWS S3 bucket
-   - Parse PDFs into text
+   - Parse PDFs into text using getPdf.ts
    - Generate structured JSON with `url`, `title`, `content`
-   - Append new entries (avoiding duplicates) to `scripts/sample_data.json`
+   - Append new entries (avoiding duplicates) to `scripts/data.json`
    
    ```bash
    npm run ingest:pdfs

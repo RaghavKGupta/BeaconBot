@@ -210,3 +210,7 @@ body {
 .toggle-boarder {
   border: 1px solid var(--background-bubble-primary);
 }
+
+a {
+  color: blue;
+}

@@ -1,9 +1,9 @@
 "use client";
 import {useEffect, useRef, useState} from 'react';
-import Bubble from '../components/Bubble'
+import ChatBox from '../components/ChatBox'
 import { useChat, Message } from 'ai/react';
 import Footer from '../components/Footer';
-import PromptSuggestionRow from '../components/PromptSuggestions/PromptSuggestionsRow';
+import PromptGroup from '../components/Prompt/PromptGroup';
 import ThemeButton from '../components/ThemeButton';
 import useConfiguration from './hooks/useConfiguration';
 
@@ -85,11 +85,11 @@ export default function Home() {
         </div>
         <div className='flex-1 relative overflow-y-auto my-4 md:my-6'>
           <div className='absolute w-full overflow-x-hidden'>
-            {messages.map((message, index) => <Bubble ref={messagesEndRef} key={`message-${index}`} content={message} />)}
+            {messages.map((message, index) => <ChatBox ref={messagesEndRef} key={`message-${index}`} content={message} />)}
           </div>
         </div>
         {!messages || messages.length === 0 && (
-          <PromptSuggestionRow onPromptClick={handlePrompt} />
+          <PromptGroup onClick={handlePrompt} />
         )}
         <form className='flex h-[40px] gap-2' onSubmit={handleSend}>
           <input onChange={handleInputChange} value={input} className='chatbot-input flex-1 text-sm md:text-base outline-none bg-transparent rounded-md p-2' placeholder='Send a message...' />

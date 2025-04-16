@@ -16,7 +16,7 @@ const s3 = new S3Client({
 
 const BUCKET_NAME = process.env.S3_BUCKET_NAME as string;
 const PREFIX = process.env.S3_PREFIX || '';
-const outputPath = path.resolve(__dirname, 'sample_data.json');
+const outputPath = path.resolve(__dirname, 'data.json');
 
 async function listPdfFiles(): Promise<string[]> {
   const listCommand = new ListObjectsV2Command({

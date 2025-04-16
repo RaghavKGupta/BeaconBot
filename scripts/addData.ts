@@ -1,7 +1,7 @@
 import { AstraDB } from "@datastax/astra-db-ts";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import 'dotenv/config'
-import sampleData from './sample_data.json';
+import sampleData from './data.json';
 import OpenAI from 'openai';
 import { SimilarityMetric } from "../app/hooks/useConfiguration";
 

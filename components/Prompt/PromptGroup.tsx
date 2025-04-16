@@ -1,6 +1,6 @@
-import PromptSuggestionButton from "./PromptSuggestionButton";
+import PromptBox from "./PromptBox";
 
-const PromptSuggestionRow = ({ onPromptClick }) => {
+const PromptGroup = ({ onClick }) => {
   const prompts = [
     'What is ACF',
     'This is such a complex website, im so lost',
@@ -11,10 +11,10 @@ const PromptSuggestionRow = ({ onPromptClick }) => {
   return (
     <div className="flex flex-row flex-wrap justify-start items-center py-4 gap-2">
       {prompts.map((prompt, index) => (
-        <PromptSuggestionButton key={`suggestion-${index}`} text={prompt} onClick={() => onPromptClick(prompt)} />
+        <PromptBox key={index} text={prompt} onClick={() => onClick(prompt)} />
       ))}
     </div>
   );
 };
 
-export default PromptSuggestionRow;
+export default PromptGroup;
