@@ -14,6 +14,7 @@
 - Ruhma Mehek Khan
 
 **Live Site:** https://beacon-bot-opal.vercel.app/ 
+**Demo Video:** https://youtu.be/l4ULz88d-VA
 
 ---
 
