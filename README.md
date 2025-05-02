@@ -5,16 +5,7 @@
 
 ---
 
-## 👨‍🏫 Course Info  
-**Course:** MGT 8803 – AI in Business  
-**Institution:** Georgia Institute of Technology – Scheller College of Business  
-**Team Members:**  
-- Raghav Gupta  
-- Nigam Wadhwa  
-- Ruhma Mehek Khan
-
 **Live Site:** https://beacon-bot-opal.vercel.app/ 
-**Demo Video:** https://youtu.be/l4ULz88d-VA
 
 ---
 
