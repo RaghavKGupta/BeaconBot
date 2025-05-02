@@ -2,10 +2,10 @@ import PromptBox from "./PromptBox";
 
 const PromptGroup = ({ onClick }) => {
   const prompts = [
-    'What is ACF',
+    'What is acf?',
     'This is such a complex website, im so lost',
     'What is the difference in care in poverty vs neglect?',
-    'I think I saw a child being trafficked?',
+    'What does “safe harbor” legislation do?',
   ];
 
   return (
